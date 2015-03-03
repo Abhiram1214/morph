@@ -1,0 +1,13 @@
+<br />
+
+<div class="container">
+
+     <strong><u><%= current_user.full_name %></u></strong><br>
+     <%= link_to "new post", new_users_post_path(:user_id=>@user.id) %>
+  <%= @user.inspect%>
+
+</div>
+
+<div>
+  <%=link_to "user posts", users_posts_path %>
+</div>

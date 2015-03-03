@@ -1,0 +1,6 @@
+<br />
+<h3><u>List af all users</u></h3>
+
+<% @all_users.each do |user| %>
+<%= link_to user.full_name,users_post_path(user.id) %><br>
+<%end%>

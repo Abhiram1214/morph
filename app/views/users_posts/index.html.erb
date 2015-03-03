@@ -1,0 +1,14 @@
+
+<div class="container"><br />
+  <strong><u><%= current_user.full_name %></u></strong> <br /><br />
+<div class="row">
+
+  <% @users_post.each do |userpost| %>
+     <div class="well">
+          <u><%= userpost.user.full_name %></u><br />
+          <%= userpost.data %><br />
+          <%= time_ago_in_words(userpost.created_at)+" "+"ago" %>
+     </div>
+<%end%>
+</div>
+</div>
