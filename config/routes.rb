@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users_posts
 
   resources :profiles
-
+  resources :friendships
   resources :statuses
 
   get 'signup', to: 'users#new', as: 'signup'

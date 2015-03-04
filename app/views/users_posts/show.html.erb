@@ -2,12 +2,21 @@
 
 <div class="container">
 
-     <strong><u><%= current_user.full_name %></u></strong><br>
-     <%= link_to "new post", new_users_post_path(:user_id=>@user.id) %>
-  <%= @user.inspect%>
+     <strong><u><%= @user.full_name %></u> posts:</strong><br><br />
+ <div>
+  <span> <%= link_to "About user", users_posts_path(:user_id=>@user.id) %></span>
+   <span> <%= link_to "new post", new_users_post_path(:user_id=>@user.id) %></span>
+   <span> <%= link_to "Add friend", friendships_path(:friend_id=>@user.id), method: :post %></span>
+ </div>
+   <% @users_post.each do |userpost| %>
+      <div class="well">
+        <u><%= userpost.user.full_name %></u><br />
+        <%= userpost.data %><br />
+        <%= time_ago_in_words(userpost.created_at)+" "+"ago" %>
+      </div>
+  <%end%>
+
+
 
 </div>
 
-<div>
-  <%=link_to "user posts", users_posts_path %>
-</div>

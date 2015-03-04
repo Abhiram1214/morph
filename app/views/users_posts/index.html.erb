@@ -1,14 +1,17 @@
 
 <div class="container"><br />
-  <strong><u><%= current_user.full_name %></u></strong> <br /><br />
+  <strong><u><%= @users_post.user.full_name %></u></strong> <br /><br />
 <div class="row">
 
-  <% @users_post.each do |userpost| %>
-     <div class="well">
-          <u><%= userpost.user.full_name %></u><br />
-          <%= userpost.data %><br />
-          <%= time_ago_in_words(userpost.created_at)+" "+"ago" %>
-     </div>
-<%end%>
+  <h3>My friends are:</h3>
+
+
+      <% @users_post.user.friendships.each do |friendship|  %>
+        <strong><%= friendship.friend.full_name %></strong><br />
+        <%end %>
+
+  <div>
+      <h6>Total friends: <%=@users_post.user.friendships.count%></h6>
+  </div>
 </div>
 </div>
